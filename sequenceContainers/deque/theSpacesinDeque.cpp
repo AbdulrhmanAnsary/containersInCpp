@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
+#include <deque>
 
 using namespace std;
 
 template <typename T>
-void printVector(vector<T> &array)
+void printDeque(deque<T> &array)
 {
     cout << "{";
     for (int i = 0; i < array.size(); i++)
@@ -18,7 +18,10 @@ void printVector(vector<T> &array)
 
 int main(int argc, char *argv[])
 {
-    vector<int> nums;
+    deque<int> nums;
+
+    cout << "Empty: " << nums.empty() << endl;
+    cout << "Size " << nums.size() << endl;
 
     nums.push_back(1);
     nums.push_back(2);
@@ -26,24 +29,23 @@ int main(int argc, char *argv[])
     nums.push_back(4);
     nums.push_back(5);
 
+    cout << "\nAfter push_back():\n";
+    printDeque(nums);
     cout << "Empty: " << nums.empty() << endl;
     cout << "Size: " << nums.size() << endl;
-    cout << "Capacity: " << nums.capacity() << endl;
     cout << "Max size: " << nums.max_size() << endl;
 
     nums.resize(10);
     cout << "\nAfter resize():\n";
     cout << "Empty: " << nums.empty() << endl;
     cout << "Size: " << nums.size() << endl;
-    cout << "Capacity: " << nums.capacity() << endl;
     cout << "Max size: " << nums.max_size() << endl;
 
     // Reduce capacity to actual size
     nums.shrink_to_fit();
 
     cout << "\nAfter shrink:\n";
-    cout << "Capacity: " << nums.capacity() << endl;
-    printVector(nums);
+    printDeque(nums);
 
     return 0;
 }

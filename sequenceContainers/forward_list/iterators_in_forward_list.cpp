@@ -14,7 +14,11 @@ int main(int argc, char *argv[])
 {
     forward_list<int> nums = {1, 2, 3, 4, 5, 6, 7};
 
-    cout << "The first element: " << *nums.begin() << endl;
+    cout << "The first element using begin: " << *nums.begin() << endl;
+    cout << "The first element using front: " << nums.front() << endl;
+    
+    cout << "\nChange the first element:\n";
+    nums.front() = 9;
 
     cout << "nums: ";
     printArray(nums);
